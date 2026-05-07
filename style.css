@@ -1,0 +1,164 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.overlay {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #222; /* Color de respaldo por si internet falla */
+}
+footer {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 0.9rem;
+  z-index: 2; /* Para que esté por encima del fondo difuminado */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+footer a {
+  color: #e67e22; /* El mismo naranja de tu botón */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #d35400;
+  text-decoration: underline;
+}
+
+.overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Nueva imagen de restaurante italiano (Unsplash es más confiable) */
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://plus.unsplash.com/premium_photo-1661883237884-263e8de8869b?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudGVzfGVufDB8fDB8fHww");
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px); /* Difuminado suave */
+  transform: scale(1.1); /* Evita bordes blancos */
+  z-index: 1;
+}
+
+.restaurant-card {
+  position: relative;
+  z-index: 2; /* Importante para que la tarjeta flote sobre el fondo */
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+.overlay {
+  height: 100%;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://unsplash.com");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.restaurant-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+button {
+  background: #e67e22;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #d35400;
+}
+button:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.status-list {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.status-item {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  animation: fadeIn 0.5s forwards;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Spinner de carga */
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #e67e22;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hidden {
+  display: none;
+}
+.error {
+  color: #e74c3c;
+  font-weight: bold;
+}
+.success {
+  color: #27ae60;
+  font-weight: bold;
+}

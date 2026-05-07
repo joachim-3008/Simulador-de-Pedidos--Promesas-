@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizza Express - Pedidos</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="overlay">
+      <div class="restaurant-card">
+        <h1>Async Pizza.Co</h1>
+        <p>Haz tu pedido y sigue el estado en tiempo real</p>
+
+        <button id="btnPedido">Realizar Pedido</button>
+
+        <div id="statusContainer" class="status-list">
+          <!-- aqui aparecen los estados -->
+        </div>
+
+        <div id="loadingMain" class="loader hidden"></div>
+      </div>
+    </div>
+    <footer>
+      Desarrollado con ❤️ por
+      <a
+        href="https://github.com/joachim-3008?tab=repositories"
+        target="_blank"
+      >
+        <i class="fab fa-github"></i> Joachim Perez
+      </a>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
