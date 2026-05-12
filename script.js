@@ -2,7 +2,7 @@ const btnPedido = document.getElementById("btnPedido");
 const statusContainer = document.getElementById("statusContainer");
 
 const statusPedido = () =>
-  Math.random() < 0.8 ? "Pedido recibido ✅" : "Error al recibir el pedido";
+  Math.random() < 0.5 ? "Pedido recibido ✅" : "Error al recibir el pedido";
 const realizarPedido = () =>
   new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -11,13 +11,13 @@ const realizarPedido = () =>
     }, 5000);
   });
 
-const entregarPizza = () =>
-  new Promise((resolve) =>
-    setTimeout(() => resolve("Pizza entregada 🍕"), 3000),
-  );
 const entregarBebida = () =>
   new Promise((resolve) =>
     setTimeout(() => resolve("Bebida entregada 🥤"), 3000),
+  );
+const entregarPizza = () =>
+  new Promise((resolve) =>
+    setTimeout(() => resolve("Pizza entregada 🍕"), 3000),
   );
 const entregarPostre = () =>
   new Promise((resolve) =>
@@ -58,14 +58,14 @@ const completarPedido = async () => {
     agregarEstado(status);
 
     mostrarCargando();
-    const pizza = await entregarPizza();
-    quitarCargando();
-    agregarEstado(pizza);
-
-    mostrarCargando();
     const bebida = await entregarBebida();
     quitarCargando();
     agregarEstado(bebida);
+
+    mostrarCargando();
+    const pizza = await entregarPizza();
+    quitarCargando();
+    agregarEstado(pizza);
 
     mostrarCargando();
     const postre = await entregarPostre();
